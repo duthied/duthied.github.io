@@ -1,4 +1,4 @@
-duthied.githib.io
+duthied.github.io
 =================
 
 Personal GitHub page

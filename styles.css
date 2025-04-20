@@ -8,6 +8,12 @@
     --border-radius: 8px;
     --box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
     --transition: all 0.3s ease;
+    
+    /* Type-specific colors */
+    --movie-color: #e74c3c;      /* Red tone for movies */
+    --series-color: #2ecc71;     /* Green tone for series */
+    --movie-light: #fadbd8;      /* Light red background */
+    --series-light: #d5f5e3;     /* Light green background */
 }
 
 * {
@@ -68,7 +74,7 @@ h1 {
     margin-top: 0.5rem;
 }
 
-/* Movie list styles */
+/* Item list styles */
 #movie-list {
     list-style-type: none;
     display: grid;
@@ -76,25 +82,84 @@ h1 {
     gap: 1rem;
 }
 
-.movie-item {
+/* Base item styling (shared properties) */
+.item {
     background-color: white;
     padding: 1rem;
     border-radius: var(--border-radius);
     box-shadow: var(--box-shadow);
     transition: var(--transition);
     display: flex;
-    align-items: center;
+    align-items: flex-start;
+    animation: fadeIn 0.3s ease-out;
+}
+
+/* Movie-specific styling */
+.movie-item {
+    border-left: 4px solid var(--movie-color);
 }
 
 .movie-item:hover {
+    background-color: var(--movie-light);
     transform: translateY(-3px);
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+    box-shadow: 0 4px 8px rgba(231, 76, 60, 0.2);
 }
 
-.movie-item::before {
-    content: '🎬';
-    margin-right: 0.5rem;
+/* Series-specific styling */
+.series-item {
+    border-left: 4px solid var(--series-color);
+}
+
+.series-item:hover {
+    background-color: var(--series-light);
+    transform: translateY(-3px);
+    box-shadow: 0 4px 8px rgba(46, 204, 113, 0.2);
+}
+
+/* Icon styling */
+.icon {
+    margin-right: 0.8rem;
     font-size: 1.2rem;
+    flex-shrink: 0;
+}
+
+/* Item content styling */
+.item-content {
+    flex-grow: 1;
+    overflow: hidden;
+}
+
+.item-title {
+    font-weight: 500;
+    margin-bottom: 0.2rem;
+}
+
+.series-info {
+    font-size: 0.85rem;
+    color: #6c757d;
+    display: block;
+}
+
+/* Type labels */
+.type-label {
+    font-size: 0.7rem;
+    padding: 0.2rem 0.4rem;
+    border-radius: 3px;
+    margin-left: 0.5rem;
+    text-transform: uppercase;
+    font-weight: 600;
+    flex-shrink: 0;
+    align-self: flex-start;
+}
+
+.movie-label {
+    background-color: var(--movie-light);
+    color: var(--movie-color);
+}
+
+.series-label {
+    background-color: var(--series-light);
+    color: var(--series-color);
 }
 
 /* Footer styles */
@@ -130,10 +195,6 @@ footer {
 @keyframes fadeIn {
     from { opacity: 0; transform: translateY(10px); }
     to { opacity: 1; transform: translateY(0); }
-}
-
-.movie-item {
-    animation: fadeIn 0.3s ease-out;
 }
 
 /* No results message */

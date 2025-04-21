@@ -5,19 +5,40 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Movie Collection</title>
     <link rel="stylesheet" href="styles.css">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap">
 </head>
-<body>
+<body class="light-mode">
     <div class="container">
         <header>
-            <h1>🎬 My Video Collection</h1>
+            <div class="header-content">
+                <h1>🎬 The Video Collection</h1>
+                <button id="theme-toggle" aria-label="Toggle dark mode">
+                    <span class="sun">☀️</span>
+                    <span class="moon">🌙</span>
+                </button>
+            </div>
+            
             <div class="search-container">
-                <input type="text" id="search-input" placeholder="Search movies & series...">
-                <div id="search-stats">Showing all <span id="movie-count"></span> items</div>
+                <div class="search-wrapper">
+                    <span class="search-icon">🔍</span>
+                    <input type="text" id="search-input" placeholder="Search movies & series...">
+                    <button id="clear-search" class="hidden">✕</button>
+                </div>
+                <div id="search-stats">Showing all <span id="item-count"></span> items</div>
+            </div>
+            
+            <div class="filter-container">
+                <button class="filter-btn active" data-filter="all">All</button>
+                <button class="filter-btn" data-filter="movie">Movies</button>
+                <button class="filter-btn" data-filter="series">Series</button>
             </div>
         </header>
         
         <main>
+            <div class="loader" id="loader">
+                <div class="spinner"></div>
+                <p>Loading collection...</p>
+            </div>
             <ul id="movie-list"></ul>
         </main>
         

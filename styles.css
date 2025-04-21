@@ -85,7 +85,7 @@ h1 {
 /* Base item styling (shared properties) */
 .item {
     background-color: white;
-    padding: 1rem;
+    padding: 0.5rem;
     border-radius: var(--border-radius);
     box-shadow: var(--box-shadow);
     transition: var(--transition);
@@ -142,9 +142,9 @@ h1 {
 
 /* Type labels */
 .type-label {
-    font-size: 0.7rem;
+    font-size: 0.5rem;
     padding: 0.2rem 0.4rem;
-    border-radius: 3px;
+    border-radius: 30px;
     margin-left: 0.5rem;
     text-transform: uppercase;
     font-weight: 600;
@@ -173,7 +173,7 @@ footer {
 /* Responsive adjustments */
 @media (max-width: 768px) {
     #movie-list {
-        grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+        grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
     }
 }
 
